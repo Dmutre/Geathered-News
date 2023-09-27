@@ -1,6 +1,7 @@
 import {useEffect, useState } from 'react';
 import Post from './Post';
 import axios from 'axios';
+import '../styles/Posts.css';
 
 
 export default function Posts() {
@@ -16,7 +17,7 @@ export default function Posts() {
   }, []);
   
   return (
-    <div>
+    <div className='container'>
       {posts.map((el, index) => <Post {...el} key={index}/>)}
     </div>
   )
