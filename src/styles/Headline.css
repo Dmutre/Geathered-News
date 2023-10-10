@@ -15,7 +15,7 @@
 
 .mainNews {
   margin-right: 40px;
-  max-width: 50%;
+  width: 50%;
   height: 100%;
   background-color: lightgray; /* Додайте свій колір тут */
 }
@@ -32,8 +32,12 @@
   width: 300px;
   margin-bottom: 50px;
   height: 210px;
+  position: relative;
 }
 
 .Headline-news-box div h1 {
+  position: absolute;
+  bottom: 0;
   font-size: 20px;
+  padding: 10px;
 }

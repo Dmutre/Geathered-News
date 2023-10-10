@@ -1,5 +1,6 @@
 import {useEffect, useState } from 'react';
 import Post from './Post';
+import Loader from './UI/Loader';
 import { getHeadlineArticles } from '../API/headlineArticlesAPI';
 import '../styles/Headline.css';
 
@@ -9,21 +10,23 @@ export default function Headline() {
 
   const [posts, setPosts] = useState([]);
   useEffect(() => {
-    setIsLoading(true);
     async function fetchData() {
+      setIsLoading(true);
+      await new Promise(res => setTimeout(res, 2000));
+      
       const response = await getHeadlineArticles({
         pageSize: 5,
       });
       setPosts(response.data.articles);
+      setIsLoading(false);
     }
 
     fetchData();
-    setIsLoading(false);
   }, []);
   
   return (
     <div className='container'>
-      {isLoading ? <h1>Data is loading</h1> :
+      {isLoading ? <Loader /> :
       <div className='Headline-conteiner'>
         <div className='mainNews'>
           <Post {...posts[0]} />
