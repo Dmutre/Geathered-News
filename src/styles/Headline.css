@@ -1,0 +1,39 @@
+.container {
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+}
+
+.Headline-conteiner {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  height: 100%;
+}
+
+.mainNews {
+  margin-right: 40px;
+  max-width: 50%;
+  height: 100%;
+  background-color: lightgray; /* Додайте свій колір тут */
+}
+
+.Headline-news-box {
+  width: 45%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.Headline-news-box div {
+  margin-right: 5px;
+  width: 300px;
+  margin-bottom: 50px;
+  height: 210px;
+}
+
+.Headline-news-box div h1 {
+  font-size: 20px;
+}
