@@ -3,6 +3,7 @@ import Post from './Post';
 import Loader from './UI/Loader';
 import { getHeadlineArticles } from '../API/headlineArticlesAPI';
 import '../styles/Headline.css';
+import config from '../config.json';
 
 
 export default function Headline() {
@@ -13,7 +14,7 @@ export default function Headline() {
     async function fetchData() {
       setIsLoading(true);      
       const response = await getHeadlineArticles({
-        pageSize: 5,
+        pageSize: config.HEADLINE_ARTICLE_COUNT,
       });
       setPosts(response.data.articles);
       setIsLoading(false);
