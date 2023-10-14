@@ -11,9 +11,7 @@ export default function Headline() {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
     async function fetchData() {
-      setIsLoading(true);
-      await new Promise(res => setTimeout(res, 2000));
-      
+      setIsLoading(true);      
       const response = await getHeadlineArticles({
         pageSize: 5,
       });
@@ -33,20 +31,13 @@ export default function Headline() {
         </div>
 
         <div className='Headline-news-box'>
-          <div>
-            <Post {...posts[1]}/>
-          </div>
-          <div>
-            <Post {...posts[2]}/>
-          </div>
-          <div>
-            <Post {...posts[3]}/>
-          </div>
-          <div>
-            <Post {...posts[4]}/>
-          </div>
+            {posts.map((el, index) => {
+              if(index !== 0) {
+                return <Post {...el} key={index}/>;
+              }
+            })}
         </div>
       </div>}
     </div>
-  )
-}
+  );
+};
